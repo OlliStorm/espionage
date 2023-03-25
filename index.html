@@ -21,18 +21,18 @@
         </div>
         <div class="row gx-0">
             <div class="col-sm-6">
-                <img class="img-fluid ratio ratio-1x1" src="media/7.jfif ">
+                <img class="img-fluid reveal ratio ratio-1x1" src="media/7.jfif ">
             </div>
             <div class="col-sm-6">
-                <img class="img-fluid ratio ratio-1x1" src="media/1.jfif">
+                <img class="img-fluid reveal ratio ratio-1x1" src="media/1.jfif">
             </div>
         </div>
         <div class="row gx-0">
             <div class="col-sm-6">
-                <img class="img-fluid ratio ratio-1x1" src="media/1.jpg">
+                <img class="img-fluid reveal ratio ratio-1x1" src="media/1.jpg">
             </div>
             <div class="col-sm-6">
-                <img class="img-fluid ratio ratio-1x1" src="media/3.jfif">
+                <img class="img-fluid reveal ratio ratio-1x1" src="media/3.jfif">
             </div>
         </div>
         <div class="row gx-0 p-5">
@@ -47,39 +47,64 @@
         </div>
         <div class="row gx-0">
             <div class="col-sm-6">
-                <img class="img-fluid ratio ratio-1x1" src="media/3.jpg">
+                <img class="img-fluid reveal ratio ratio-1x1" src="media/3.jpg">
             </div>
             <div class="col-sm-6">
-                <img class="img-fluid ratio ratio-1x1" src="media/4.jpg">
-            </div>
-        </div>
-        <div class="row gx-0">
-            <div class="col-sm-6">
-                <img class="img-fluid ratio ratio-1x1" src="media/5.jfif">
-            </div>
-            <div class="col-sm-6">
-                <img class="img-fluid ratio ratio-1x1" src="media/8.jfif">
+                <img class="img-fluid reveal ratio ratio-1x1" src="media/4.jpg">
             </div>
         </div>
         <div class="row gx-0">
             <div class="col-sm-6">
-                <img class="img-fluid ratio ratio-1x1" src="media/2.jfif">
+                <img class="img-fluid reveal ratio ratio-1x1" src="media/5.jfif">
             </div>
             <div class="col-sm-6">
-                <img class="img-fluid ratio ratio-1x1" src="media/2.jpg">
+                <img class="img-fluid reveal ratio ratio-1x1" src="media/8.jfif">
             </div>
         </div>
         <div class="row gx-0">
             <div class="col-sm-6">
-                <img class="img-fluid ratio ratio-1x1" src="media/4.jfif">
+                <img class="img-fluid reveal ratio ratio-1x1" src="media/2.jfif">
             </div>
             <div class="col-sm-6">
-                <img class="img-fluid ratio ratio-1x1" src="media/6.jfif">
+                <img class="img-fluid reveal ratio ratio-1x1" src="media/2.jpg">
+            </div>
+        </div>
+        <div class="row gx-0">
+            <div class="col-sm-6">
+                <img class="img-fluid reveal ratio ratio-1x1" src="media/4.jfif">
+            </div>
+            <div class="col-sm-6">
+                <img class="img-fluid reveal ratio ratio-1x1" src="media/6.jfif">
             </div>
         </div>
     </div>
 
     <script>
+
+        window.addEventListener('scroll', scroll);
+
+        window.onload = scroll()
+
+        function scroll() {
+            reveal();
+        }
+
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var revealTop = reveals[i].getBoundingClientRect().top;
+                var revealPoint = 300;
+
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('active');
+                }
+            }
+
+            console.log(document.body.scrollTop);
+        }
+
         $(function () {
             var div = $('.img-fluid');
             var width = div.width();
