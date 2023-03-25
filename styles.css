@@ -7,3 +7,7 @@ body {
 .img-fluid {
     object-fit: cover;
 }
+
+li {
+    margin: 15px;
+}
