@@ -4,6 +4,6 @@ body {
     font-family: monospace;
 }
 
-img {
-    width:
+.img-fluid {
+    object-fit: cover;
 }
